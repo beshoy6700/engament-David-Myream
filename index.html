@@ -1,194 +1,419 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Engagement Invitation — 31/10/2025</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="utf-8">
+  <title>Anton & Marina | Holy Matrimony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 🔍 SEO + Social Media Meta Tags -->
-  <meta name="description" content="You're invited to the engagement of David & Myream on October 31, 2025. Click to view full details and location.">
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#c9a24d">
 
-  <!-- 🌐 Open Graph for Facebook/WhatsApp -->
-  <meta property="og:title" content="You're Invited: David & Myream's Engagement 🎉">
-  <meta property="og:description" content="Join us on 31/10/2025 at St. Anthony Church. Your presence means the world to us!">
-  <meta property="og:image" content="https://beshoy6700.github.io/engament-David-Myream/photo.jpg">
-  <meta property="og:url" content="https://beshoy6700.github.io/engament-David-Myream/">
-  <meta property="og:type" content="website">
-
-  <!-- 🐦 Twitter Meta -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="You're Invited: David & Myream's Engagement 💍">
-  <meta name="twitter:description" content="Click to view the full invitation and location.">
-  <meta name="twitter:image" content="https://beshoy6700.github.io/engament-David-Myream/photo.jpg">
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=IBM+Plex+Arabic:wght@400;500&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(145deg, #6ee7b7, #3b82f6);
-      color: #333;
+    :root {
+      --night: #0e0c0a;
+      --gold: #c9a24d;
+      --champagne: #e9d7a3;
+      --text: #f5f1ea;
+      --muted: #b6aa95;
     }
-    .btn {
-      background: linear-gradient(135deg, #f43f5e, #ec4899);
-      color: white;
-      border-radius: 30px;
-      padding: 12px 25px;
-      text-align: center;
-      display: inline-flex;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
       align-items: center;
+      background: radial-gradient(circle at top, #2a2218, var(--night));
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate>* {
+      opacity: 0;
+      animation: fadeUp .9s ease forwards;
+    }
+
+    .animate>*:nth-child(1) {
+      animation-delay: .2s;
+    }
+
+    .animate>*:nth-child(2) {
+      animation-delay: .4s;
+    }
+
+    .animate>*:nth-child(3) {
+      animation-delay: .6s;
+    }
+
+    .animate>*:nth-child(4) {
+      animation-delay: .8s;
+    }
+
+    .animate>*:nth-child(5) {
+      animation-delay: 1s;
+    }
+
+    .animate>*:nth-child(6) {
+      animation-delay: 1.2s;
+    }
+
+    /* Card */
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background:
+        linear-gradient(180deg, rgba(201, 162, 77, .06), transparent),
+        rgba(14, 12, 10, .85);
+      backdrop-filter: blur(16px);
+      border-radius: 34px;
+      padding: 40px 26px 46px;
+      text-align: center;
+      position: relative;
+      box-shadow:
+        0 50px 140px rgba(0, 0, 0, .85),
+        inset 0 0 80px rgba(201, 162, 77, .05);
+      border: 1px solid rgba(201, 162, 77, .25);
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .lang {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      border: 1px solid var(--gold);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: .8rem;
+      cursor: pointer;
+      color: var(--champagne);
+      background: rgba(201, 162, 77, .12);
+      user-select: none;
+    }
+
+    .verse {
+      font-size: .88rem;
+      opacity: .8;
+      margin-bottom: 12px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .ornament {
+      width: 120px;
+      height: 1px;
+      margin: 0 auto 20px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .frame {
+      width: 230px;
+      height: 285px;
+      margin: 0 auto 22px;
+      border-radius: 120px;
+      padding: 5px;
+      background: linear-gradient(180deg, var(--gold), var(--champagne));
+    }
+
+    .photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 120px;
+      object-fit: cover;
+      border: 3px solid #111;
+      transition: transform .6s ease;
+    }
+
+    .photo:hover {
+      transform: scale(1.02);
+    }
+
+    .names {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      letter-spacing: 3px;
+      margin: 10px 0 4px;
+      background: linear-gradient(180deg, #f3e7c0, #c9a24d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: .8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .details span {
+      display: block;
+      margin: 5px 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .countdown {
+      display: flex;
       justify-content: center;
       gap: 8px;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      margin: 22px 0;
     }
+
+    .cd-box {
+      width: 62px;
+      padding: 12px 4px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03));
+      border: 1px solid rgba(201, 162, 77, .25);
+    }
+
+    .cd-box strong {
+      display: block;
+      font-size: 1.3rem;
+    }
+
+    .cd-box span {
+      font-size: .65rem;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 10px 26px;
+      border-radius: 36px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--champagne);
+      text-decoration: none;
+      font-size: .85rem;
+      transition: .3s;
+    }
+
     .btn:hover {
-      transform: scale(1.05);
-      background-color: #d52c6d;
+      background: var(--gold);
+      color: #111;
     }
-    .countdown {
-      font-size: 1.5rem;
-      color: #2563eb;
-      font-weight: bold;
-    }
-    .sticky-btn {
-      position: sticky;
-      bottom: 10px;
+
+    #ar {
+      display: none;
+      direction: rtl;
+      font-family: 'IBM Plex Arabic', sans-serif;
     }
   </style>
 </head>
 
-<body class="flex items-center justify-center min-h-screen p-6">
-  <main class="max-w-lg w-full bg-white rounded-2xl shadow-xl p-8 text-center relative">
+<body>
 
-    <!-- Header with Language Toggle -->
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-xl font-bold text-indigo-700">💍 David & Myream</h2>
-      <button onclick="toggleLanguage()" id="langBtn" class="text-sm text-indigo-600 underline hover:text-indigo-800">
-        🌐 عربي
-      </button>
-    </div>
+  <div class="card">
+    <div class="lang" id="langBtn">AR</div>
 
-    <!-- Image -->
-    <div class="flex justify-center mb-6">
-      <img src="photo.jpg" alt="Our photo" class="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-white" onerror="this.style.display='none';"/>
-    </div>
+    <!-- EN -->
+    <div id="en" class="animate">
+      <div class="verse">“Therefore what God has joined together, let no one separate.” — (Mark 10:9)</div>
+      <div class="ornament"></div>
 
-    <!-- English Content (default) -->
-    <div id="en-content">
-      <p class="mt-2 mb-4 font-semibold text-indigo-700">
-        "That your joy may be full And your joy will be complete."(John 16:24)
-      </p>
-
-      <h1 class="text-2xl font-bold mb-2 text-indigo-700">
-        You're invited to our Engagement Celebration 💍
-      </h1>
-      
-      <p class="text-gray-600 mb-4">your presence means a lot!</p>
-
-      <ul class="mb-6 space-y-2 text-center">
-        <li><span class="font-semibold">Date:</span> Friday, 31/10/2025</li>
-        <li><span class="font-semibold">Time:</span> 7:00 PM</li>
-        <li><span class="font-semibold">Location:</span> Grand Hayat Open Air</li>
-        <li><a href="https://maps.app.goo.gl/E5BjVYW7yPiecE8r9" target="_blank" class="text-blue-600 underline">📍 View on Google Maps</a></li>
-      </ul>
-
-      <div class="mb-6">
-        <div class="text-sm text-gray-500">⏳ Countdown to the event:</div>
-        <div id="countdown-en" class="countdown mt-2">0 days • 0 hours • 0 minutes • 0 seconds</div>
+      <div class="frame">
+        <img src="photo.jpeg" class="photo">
       </div>
 
-      <div class="sticky-btn">
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Engagement+of+David+and+Myream&dates=20251031T180000Z/20251031T190000Z&details=Engagement+David+and+Myream+at+Grand+Hayat&location=Grand+Hayat&trp=true" 
-           target="_blank" class="btn w-full">
-          <span>➕ Add to Calendar</span>
+      <div class="names">Anton & Marina</div>
+      <div class="subtitle">The Sacrament of Holy Matrimony</div>
+
+      <div class="details">
+        <span>Sunday • January 25, 2026</span>
+        <span>7:00 PM</span>
+        <span>The Prince Tawadros Church</span>
+      </div>
+
+      <div class="countdown" id="cd-en"></div>
+
+      <div class="actions">
+        <a class="btn" target="_blank"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Anton+%26+Marina+Wedding&dates=20260125T190000/20260125T210000">
+          ➕ Add to Calendar
         </a>
+        <a class="btn" target="_blank" href="https://maps.app.goo.gl/G96iX4Bvo2Fg33WMA">📍 Location</a>
       </div>
-
-      <small class="block mt-6 text-gray-400">This digital invite was lovingly crafted for you.</small>
     </div>
 
-    <!-- Arabic Content -->
-    <div id="ar-content" class="hidden text-center" dir="rtl">
-      <p class="mt-2 mb-4 font-semibold text-indigo-700">
-     "وَتَسْتَمِرُّ فَرَحَتُكُمْ، لِيَكُونَ فَرَحُكُمْ كاملاً." (يوحنا ١٦: ٢٤)
-      </p>
+    <!-- AR -->
+    <div id="ar" class="animate">
+      <div class="verse">"فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقْهُ إِنْسَانٌ" (مرقس 10:9)</div>
+      <div class="ornament"></div>
 
-      <h1 class="text-2xl font-bold mb-2 text-indigo-700">
-        يشرفنا دعوتكم لمشاركتنا خطوبتنا 💍
-      </h1>
-    
-      <p class="text-gray-600 mb-4"> حضوركم يسعد قلوبنا ويكمّل فرحتنا.</p>
-
-      <ul class="mb-6 space-y-2 text-center">
-        <li><span class="font-semibold">اليوم:</span> الجمعة 31/10/2025</li>
-        <li><span class="font-semibold">الوقت:</span> 07:00 مساءً</li>
-        <li><span class="font-semibold">المكان:</span> جراند حياة المنيا الجديدة</li>
-        <li><a href="https://maps.app.goo.gl/E5BjVYW7yPiecE8r9" target="_blank" class="text-blue-600 underline">📍 عرض الموقع على الخريطة</a></li>
-      </ul>
-
-      <div class="mb-6">
-        <div class="text-sm text-gray-500">⏳ العد التنازلي للموعد:</div>
-        <div id="countdown-ar" class="countdown mt-2">0 يوم • 0 ساعة • 0 دقيقة • 0 ثانية</div>
+      <div class="frame">
+        <img src="photo.jpeg" class="photo">
       </div>
 
-      <div class="sticky-btn">
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=خطوبة+ديفيد+مريام&dates=20251031T180000Z/20251031T190000Z&details=خطوبة+ديفيد+و مريام+في+جراند+حياة&location=جراند+حياة&trp=true" 
-           target="_blank" class="btn w-full">
-          <span>➕ أضف إلى التقويم</span>
+      <div class="names">أنطون & مارينا</div>
+      <div class="subtitle">صلاة الإكليل</div>
+
+      <div class="details">
+        <span>الأحد 25 يناير 2026</span>
+        <span>07:00 مساءً</span>
+        <span>كنيسة الأمير تادرس الشطبي</span>
+      </div>
+
+      <div class="countdown" id="cd-ar"></div>
+
+      <div class="actions">
+        <a class="btn" target="_blank"
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=إكليل+أنطون+ومارينا&dates=20260125T190000/20260125T210000">
+          ➕ إضافة إلى التقويم
         </a>
+        <a class="btn" target="_blank" href="https://maps.app.goo.gl/G96iX4Bvo2Fg33WMA">📍 الموقع</a>
       </div>
-
-      <small class="block mt-6 text-gray-400">صُممت هذه الصفحة كدعوة رقمية.</small>
     </div>
-  </main>
+  </div>
+
+  <!-- Sound -->
+  <audio id="weddingSound" preload="auto">
+    <source src="bell.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
-    const enContent = document.getElementById('en-content');
-    const arContent = document.getElementById('ar-content');
-    const toggleBtn = document.getElementById('langBtn');
-    const cdEn = document.getElementById('countdown-en');
-    const cdAr = document.getElementById('countdown-ar');
+    const en = document.getElementById("en");
+    const ar = document.getElementById("ar");
+    const btn = document.getElementById("langBtn");
+    const sound = document.getElementById("weddingSound");
 
-    function toggleLanguage() {
-      const isEnglish = document.documentElement.lang === 'en';
-      if (isEnglish) {
-        document.documentElement.lang = 'ar';
-        document.documentElement.dir = 'rtl';
-        enContent.classList.add('hidden');
-        arContent.classList.remove('hidden');
-        toggleBtn.innerHTML = '🌐 English';
-      } else {
-        document.documentElement.lang = 'en';
-        document.documentElement.dir = 'ltr';
-        arContent.classList.add('hidden');
-        enContent.classList.remove('hidden');
-        toggleBtn.innerHTML = '🌐 عربي';
-      }
+    /* ================= SOUND CONTROL ================= */
+
+    sound.volume = 0;                 // start silent
+    const TARGET_VOLUME = 0.15;
+    const FADE_DURATION = 3000;       // fade in duration
+    const START_DELAY = 2000;         // delay before start
+
+    function fadeInAudio() {
+      const steps = 40;
+      const stepTime = FADE_DURATION / steps;
+      const volumeStep = TARGET_VOLUME / steps;
+
+      let current = 0;
+
+      const fade = setInterval(() => {
+        current++;
+        sound.volume = Math.min(TARGET_VOLUME, sound.volume + volumeStep);
+
+        if (current >= steps) {
+          clearInterval(fade);
+          sound.volume = TARGET_VOLUME;
+        }
+      }, stepTime);
     }
 
-    // Countdown Logic
-    const eventDate = new Date('2025-10-31T19:00:00+03:00');
-    function updateCountdown() {
-      const now = new Date();
-      const diff = eventDate - now;
+    function tryPlay() {
+      sound.play()
+        .then(() => fadeInAudio())
+        .catch(() => {
+          console.log("Autoplay blocked — waiting for user interaction");
+        });
+    }
 
+    // Try autoplay after delay
+    setTimeout(() => {
+      tryPlay();
+    }, START_DELAY);
+
+    // Fallback: first user click enables sound
+    document.addEventListener("click", () => {
+      if (sound.paused) {
+        tryPlay();
+      }
+    }, { once: true });
+
+    /* ================= LANGUAGE ================= */
+
+    function setLang(l) {
+      en.style.display = l === "ar" ? "none" : "block";
+      ar.style.display = l === "ar" ? "block" : "none";
+      btn.innerText = l === "ar" ? "EN" : "AR";
+      localStorage.setItem("lang", l);
+    }
+
+    btn.onclick = () => {
+      setLang(localStorage.getItem("lang") === "en" ? "ar" : "en");
+    };
+
+    setLang(localStorage.getItem("lang") || "en");
+
+    /* ================= COUNTDOWN ================= */
+
+    const eventDate = new Date("2026-01-25T19:00:00+02:00");
+    const cdEn = document.getElementById("cd-en");
+    const cdAr = document.getElementById("cd-ar");
+
+    function build(el, d, h, m, s, arLang = false) {
+      const labels = arLang
+        ? ["يوم", "ساعة", "دقيقة", "ثانية"]
+        : ["DAYS", "HOURS", "MIN", "SEC"];
+
+      el.innerHTML = `
+        <div class="cd-box"><strong>${d}</strong><span>${labels[0]}</span></div>
+        <div class="cd-box"><strong>${h}</strong><span>${labels[1]}</span></div>
+        <div class="cd-box"><strong>${m}</strong><span>${labels[2]}</span></div>
+        <div class="cd-box"><strong>${s}</strong><span>${labels[3]}</span></div>`;
+    }
+
+    function update() {
+      const diff = eventDate - new Date();
       if (diff <= 0) {
-        cdEn.textContent = '🥳 It’s time — see you there!';
-        cdAr.textContent = '🥳 اللحظة وصلت — ننتظركم!';
+        cdEn.innerHTML = "Today we are united in Christ ✝️";
+        cdAr.innerHTML = "اليوم نتحد في سر الزيجة المقدسة ✝️";
         return;
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor(diff / 3600000 % 24);
+      const m = Math.floor(diff / 60000 % 60);
+      const s = Math.floor(diff / 1000 % 60);
 
-      cdEn.innerHTML = `${days} days • ${hours} hours • ${minutes} minutes • ${seconds} seconds`;
-      cdAr.innerHTML = `${days} يوم • ${hours} ساعة • ${minutes} دقيقة • ${seconds} ثانية`;
+      build(cdEn, d, h, m, s);
+      build(cdAr, d, h, m, s, true);
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    update();
+    setInterval(update, 1000);
+
+    /* ================= PWA ================= */
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
   </script>
+
 </body>
+
 </html>
